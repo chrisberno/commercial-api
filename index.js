@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const stripe = require('stripe')('sk_test_51Hn2DCDSUpQzNBieVXhEztMCF1q6JJe30K0qucmzP2ENWgy2xqRnAn6jDG8J5M5HGCsStxLpyq4drEDGOt7PCV8P00YWYwy1re');
+const stripe = require('stripe')('sk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 
 // Middleware required for Webhook Handler
 app.use(
@@ -61,7 +61,7 @@ app.post('/checkout', async (req, res) => {
     payment_method_types: ['card'],
     line_items: [
       {
-        price: 'price_1LSN8ADSUpQzNBieYUd5jXIf',
+        price: 'price_xxxxxxxxxxxxxxxxxx',
       },
     ],
     // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
@@ -80,7 +80,7 @@ app.post('/webhook', async (req, res) => {
   let data;
   let eventType;
   // Check if webhook signing is configured.
-  const webhookSecret = 'whsec_130df9ce8d20dc0ef38f1877ce005e261710b650193cb6c930c849007ce51ae7';
+  const webhookSecret = 'whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
   if (webhookSecret) {
     // Retrieve the event by verifying the signature using the raw body and secret.
